@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	  <title>Product Page</title>
+	  <link th:href="@{/css/ProductMainStyles.css}" rel="stylesheet" /> 
+	</head>
+	
+	<body>
+	  <div class="product-container">
+	  	<div class="row">
+            <div class="product-description">
+            	<div class="card">
+			      <h2 th:text="${product.collection}"></h2>
+				  <h3 th:text="${product.colour}"></h3>
+				  <p th:text="${product.description}"></p>
+	   			</div>
+	   		</div>
+	   		<div class="product-image">
+            	<div class="card">
+            		<img class="card-img" th:src="@{'/images/' + ${product.imgFilename}}" alt="Product Image">
+	   			</div>
+	   		</div>
+	   		<div class="other-product">
+            	<div class="card">
+					<div class="product-list">
+						<ul>
+							<li><img src="/images/pink-lady-01.png" alt="Product Image"></li>
+							<li><img src="/images/blue-lime-01.png" alt="Product Image"></li>
+							<li><img src="/images/khaki-orange-01.png" alt="Product Image"></li>
+							<li><img src="/images/red-football-01.png" alt="Product Image"></li>
+							<li><img src="/images/turquoise-01.png" alt="Product Image"></li>
+						</ul>
+					</div>
+					<h2>
+						<span>Product price: </span>
+		                <span th:text="${product.price}"></span>
+					</h2>
+					<h2>
+					    <span th:text="${product.stock}"></span>
+						<span>Left </span>
+					</h2>
+				    <addButton>Add to Cart</addButton>
+				    <purchaseButton>Purchase Now</purchaseButton>
+	   			</div>
+	   		</div>
+	   	</div>
+	  </div>
+	  <br>
+	  
+	  	<div class="productDetails-container">
+			<div class="product_details">
+		    	<div class="product_feature">
+			    	<h2>FEATURES</h2>
+			    	<ul class="product_content">
+						<li>
+							Collection
+							<span th:text="${product.collection}"></span>
+						</li>
+						<li>
+							Colour
+							<span th:text="${product.colour}"></span>
+						</li>
+						<li>
+							Plating
+							<span th:text="${product.plating}"></span>
+						</li>
+						<li>
+							Weight
+							<span th:text="${product.weight}"></span>
+						</li>
+					</ul>
+					
+					<div class="wrap-collabsible">
+					  <input id="collapsible" class="toggle" type="checkbox">
+					  <label for="collapsible" class="lbl-toggle">Refund Policy</label>
+					  <div class="collapsible-content">
+					    <div class="content-inner">
+					      <p>
+					        If you are not completely satisfied with the Product(s)
+							ordered, you are entitled to a full refund (including VAT
+							and other taxes but not delivery costs) if you return your
+							order for a any reason within fourteen (14) days from the
+							date of delivery of the Product(s). The refund only covers
+							the returned Product(s). Your rights due to a defective
+							Product remain intact after the period of fourteen (14) days.
+					      </p>
+					    </div>
+					  </div>
+					</div>
+					<div class="wrap-collabsible">
+					  <input id="collapsible2" class="toggle" type="checkbox">
+					  <label for="collapsible2" class="lbl-toggle">Frequently Asked Questions (FAQ)</label>
+					  <div class="collapsible-content">
+					    <div class="content-inner">
+					      <p>
+							1. What payment methods do you accept?
+
+							We accept all major credit cards (Visa, MasterCard, American Express), PayPal, Apple Pay, and Google Pay.
+
+							2. How long will it take to receive my order?
+
+							Orders are typically processed within 1-2 business days. Standard shipping takes 5-7 business days, while expedited shipping options are available for faster delivery.
+
+							3. Do you offer international shipping?
+
+							Yes, we ship internationally. Shipping times and costs vary depending on the destination. Please refer to our Shipping Policy for more details.
+					      </p>
+					    </div>
+					  </div>
+					</div>
+				</div>
+			</div>
+	   		<div class="product_more">
+	          		<h2>You May Also Like</h2>
+				<div class="card">
+					<img src="/images/blue-lime-01.png" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Ice Holiday</h5>
+                        <p class="card-text">Flashy Pink</p>
+                    </div>
+					<div class="card-body">
+                        <h2 "${product.price}"></h2>
+						<addButton>Add to Cart</addButton>
+                    </div>
+				</div>
+				<div class="card">
+					<img src="/images/blue-lime-01.png" alt="Product Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Ice Holiday</h5>
+                        <p class="card-text">Flashy Pink</p>
+                    </div>
+					<div class="card-body">
+                        <h2 "${product.price}"></h2>
+						<addButton>Add to Cart</addButton>
+                    </div>
+				</div>
+	   		</div>
+		</div>
+		
+		<br>
+		
+		<div class="others-container">
+		  	<div class"row">
+				<div classs="column">
+					<div class="others-card">
+						<div class="othersCard-column">
+							<img class="card-img" src="/images/delivery.png" alt="Others Image">
+							<p>Free and Quick Delivery</p>
+						</div>
+						<div class="othersCard-column">
+							<img class="card-img" src="/images/warranty.png" alt="Others Image">
+							<p>2 Years Warranty</p>					
+						</div>
+						<div class="othersCard-column">
+							<img class="card-img" src="/images/refund.png" alt="Others Image">
+							<p>Satisfied Or Refund</p>					
+						</div>
+				  	</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
